@@ -91,7 +91,51 @@
             align-items: center;
             gap: 15px;
         }
-        
+        /* Logo styling - ADD THIS TO YOUR CSS */
+.logo-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-red), #1a1a1a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 3px solid var(--accent-red);
+    animation: logo-pulse 3s infinite alternate;
+    position: relative;
+}
+
+.logo-circle img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.logo-fallback {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(to right, var(--white), var(--accent-red));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@keyframes logo-pulse {
+    0% { 
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(255, 51, 102, 0.5); 
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 51, 102, 0.7); 
+    }
+    100% { 
+        transform: scale(1);
+        box-shadow: 0 0 25px rgba(255, 51, 102, 0.8); 
+    }
+}
         .logo-circle {
             width: 60px;
             height: 60px;
@@ -585,19 +629,26 @@
     <!-- Floating Particles Background -->
     <div id="particles-js"></div>
     
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-container">
-                    <div class="logo-circle">
-                        <span style="font-size: 2rem;">🐟</span>
-                    </div>
-                    <div class="logo-text">TAX EVASION <span>TUNA</span></div>
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo-container">
+                <!-- Logo with fallback -->
+                <div class="logo-circle">
+                    <!-- Replace evadt.png with your actual logo filename -->
+                    <img src="evadt.png" alt="$EVADT Logo" onerror="this.style.display='none'; document.querySelector('.logo-fallback').style.display='block'">
+                    <div class="logo-fallback" style="display: none;">$EVADT</div>
+                </div>
+                <div class="logo-text">
+                    <div style="font-size: 1.5rem; font-weight: 800;">TAX EVASION</div>
+                    <div style="font-size: 2rem; color: var(--accent-red); font-weight: 900;">TUNA</div>
+                    <div style="font-size: 1rem; color: var(--gray-light); letter-spacing: 3px; margin-top: 5px;">$EVADT</div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Hero Section -->
     <section class="hero">
